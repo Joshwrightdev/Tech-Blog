@@ -74,10 +74,10 @@ router.get("/posts", async (req, res) => {
     });
 
     console.log(req.session.logged_in);
-    const posts = PostData.map((Post) => Post.get({ plain: true }));
+    const post = PostData.map((Post) => Post.get({ plain: true }));
 
     res.render("my-Posts", {
-      posts,
+      post,
       loggedIn: req.session.logged_in,
     });
   } catch (err) {
