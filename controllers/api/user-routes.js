@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post } = require("../../models");
 
 router.post("/", async (req, res) => {
   try {
@@ -54,6 +54,34 @@ router.post("/logout", (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+// If someone goes to api/users/Posts we'll render the my-Posts template.
+// ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-PostS TEMPLATE.
+router.get("/posts", async (req, res) => {
+  try {
+    if (req.session.logged_in !== true) {
+      res.redirect("/login");
+      return;
+    }
+
+    const PostData = await Post.findAll({
+      where: {
+        // owner_id: 1,
+        user_id: req.session.user_id,
+      },
+    });
+
+    console.log(req.session.logged_in);
+    const posts = PostData.map((Post) => Post.get({ plain: true }));
+
+    res.render("my-Posts", {
+      posts,
+      loggedIn: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

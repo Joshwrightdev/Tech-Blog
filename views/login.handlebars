@@ -1,32 +1,53 @@
-<form class="login-form">
-    <div>
-        <label for="email-login">email:</label>
-        <input type="text" id="email-login" />
-    </div>
-    <div>
-        <label for="password-login">password:</label>
-        <input type="password" id="password-login" />
-    </div>
-    <div>
-        <button type="submit">login</button>
-    </div>
-</form>
-<form class="signup-form">
-    <div>
-        <label for="username-signup">username:</label>
-        <input type="text" id="username-signup" />
-    </div>
-    <div>
-        <label for="email-signup">email:</label>
-        <input type="text" id="email-signup" />
-    </div>
-    <div>
-        <label for="password-signup">password:</label>
-        <input type="password" id="password-signup" />
-    </div>
-    <div>
-        <button type="submit">signup</button>
-    </div>
-</form>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 
-<script src="/javascript/login.js"></script>
+<link href="https://api.fontshare.com/css?f[]=ranade@400&f[]=clash-display@600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+<section class="login-signup-container">
+
+    <div class="loginsignchildcontainer">
+        <div>
+            <h2 class="text-center">Login</h2>
+
+            <form class="form login-form ">
+                <div class="form-group">
+                    <label for="email-login"></label>
+                    <input class="form-input" type="text" placeholder="NAME" id="email-login" />
+                </div>
+                <div class="form-group">
+                    <label for="password-login"></label>
+                    <input class="form-input" type="password" placeholder="PASSWORD" id="password-login" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-dark marg-sign" type="submit">login</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2 class="text-center">Signup</h2>
+
+            <form class="form signup-form">
+                <div class="form-group">
+                    <label for="name-signup"></label>
+                    <input class="form-input" type="text" placeholder="NAME" id="name-signup" />
+                </div>
+                <div class="form-group">
+                    <label for="email-signup"></label>
+                    <input class="form-input" type="text" placeholder="EMAIL" id="email-signup" />
+                </div>
+                <div class="form-group">
+                    <label for="password-signup"></label>
+                    <input class="form-input" type="password" placeholder="PASSWORD" id="password-signup" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-dark marg-sign" type="submit">signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
+<script src="./js/login.js"></script>

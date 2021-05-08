@@ -1,27 +1,24 @@
-async function newFormHandler(event) {
+
+
+const deleteButton = document.getElementById("delete-btn");
+const postId = document.getElementById("post-id");
+console.log(postId.value);
+
+
+const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post_name"]').value;
-  const post_url = document.querySelector('input[name="post_entry"]').value;
+  if (postId.value) {
+    const response = await fetch(`/api/posts/${postId.value}`, {
+      method: 'DELETE',
+    });
 
-  const response = await fetch("/api/posts", {
-    method: "POST",
-    body: JSON.stringify({
-      title,
-      post_url,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (response.ok) {
-    document.location.replace("/dashboard");
-  } else {
-    alert(response.statusText);
+    if (response.ok) {
+      document.location.replace('/api/users/posts');
+    } else {
+      alert('Failed to delete post');
+    }
   }
-}
+};
 
-document
-  .querySelector(".new-post-form")
-  .addEventListener("submit", newFormHandler);
+deleteButton.addEventListener("click", newFormHandler);

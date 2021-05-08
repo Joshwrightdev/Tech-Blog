@@ -1,0 +1,43 @@
+<br>
+<br>
+<div class="col-md-6 my-post-card">
+  <h2 style="color: #626262">POST OVERVIEW</h2>
+  <hr>
+
+  <br>
+
+  <input type="hidden" id="post-id" value={{id}}>
+  <div class="form my-post-form">
+    <div class="form-group">
+      <label style="font-size: 25px;text-decoration:underline" class="post-title" for="post-title">{{title}}</label>
+    </div>
+
+
+    <div class="form-group">
+      
+      <span style="color: greenyellow;" class="post-description">{{description}}</span>
+    </div>
+
+
+
+    <button class="individualbtn btn" style="background-color: greenyellow;"
+      onclick="window.location.href='/api/users/posts/'">Back</button>
+
+    <br>
+    <br>
+    <button style="border-color: red;" type="button" class="btn individualbtn btn-light" id="delete-btn">Delete</button>
+    <br>
+    <br>
+
+
+  </div>
+</div>
+
+
+{{!-- pdf below --}}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+
+
+<script src="/js/post.js"></script>
