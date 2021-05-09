@@ -7,7 +7,7 @@ User.hasMany(Post, {
 });
 
 Post.belongsTo(User, {
-  foreignKey: "owner_id",
+  foreignKey: "user_id",
 });
 
 
