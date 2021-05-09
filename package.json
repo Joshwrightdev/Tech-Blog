@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mknowlton89/tech-blog.git"
+    "url": "git+https://github.com/joshwrightdev/tech-blog.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mknowlton89/tech-blog/issues"
+    "url": "https://github.com/joshwrightdev/tech-blog/issues"
   },
-  "homepage": "https://github.com/mknowlton89/tech-blog#readme",
+  "homepage": "https://github.com/joshwrightdev/tech-blog",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
