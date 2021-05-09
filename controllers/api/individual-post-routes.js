@@ -48,10 +48,10 @@ router.get("/:id", async (req, res) => {
       ],
     });
 
-    const Post = PostData.get({ plain: true });
+    const post = PostData.get({ plain: true });
 
     res.render("individual-post", {
-      ...Post,
+      ...post,
       loggedIn: req.session.logged_in,
     });
   } catch (err) {
