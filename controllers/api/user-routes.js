@@ -76,7 +76,7 @@ router.get("/posts", async (req, res) => {
     console.log(req.session.logged_in);
     const post = PostData.map((Post) => Post.get({ plain: true }));
 
-    res.render("my-Posts", {
+    res.render("my-posts", {
       post,
       loggedIn: req.session.logged_in,
     });
