@@ -36,10 +36,10 @@ router.get("/allposts", async (req, res) => {
       return;
     }
 
-    const PostData = await Post.findAll();
+    const postData = await Post.findAll();
 
     console.log(req.session.logged_in);
-    const posts = PostData.map((Post) => Post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render("all-posts", {
       posts,

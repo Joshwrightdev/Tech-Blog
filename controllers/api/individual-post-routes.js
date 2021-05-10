@@ -18,43 +18,45 @@ router.post("/", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const PostData = await Post.destroy({
+    const postData = await Post.destroy({
       where: {
         id: req.params.id,
         // user_id: req.session.user_id,
       },
     });
 
-    if (!PostData) {
+    if (!postData) {
       res.status(404).json({ message: "No posts found with this id!" });
       return;
     }
 
-    res.status(200).json(PostData);
+    res.status(200).json(postData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get("/:id", async (req, res) => {
+  console.log(req.params.id)
   try {
 
-    const PostData = await Post.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
-          model: user,
+          model: User,
           attributes: ["name"],
         },
       ],
     });
 
-    const Post = PostData.get({ plain: true });
-
+    const post = postData.get({ plain: true });
+    console.log(post)
     res.render("individual-post", {
-      ...Post,
+      ...post,
       loggedIn: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

@@ -60,13 +60,14 @@ router.post("/logout", (req, res) => {
 // If someone goes to api/users/Posts we'll render the my-Posts template.
 // ** WILL NEED TO UPDATE ONCE WE GET SOME DATA SO WE CAN PASS THAT DOWN TO THE MY-PostS TEMPLATE.
 router.get("/posts", async (req, res) => {
+  console.log("/api/users/posts")
   try {
     if (req.session.logged_in !== true) {
       res.redirect("/login");
       return;
     }
 
-    const PostData = await Post.findAll({
+    const postData = await Post.findAll({
       where: {
         // owner_id: 1,
         user_id: req.session.user_id,
@@ -74,10 +75,10 @@ router.get("/posts", async (req, res) => {
     });
 
     console.log(req.session.logged_in);
-    const post = PostData.map((Post) => Post.get({ plain: true }));
-
+    const posts = postData.map((Post) => Post.get({ plain: true }));
+    console.log(posts)
     res.render("my-posts", {
-      post,
+      posts,
       loggedIn: req.session.logged_in,
     });
   } catch (err) {
